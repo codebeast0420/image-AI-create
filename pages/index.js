@@ -11,9 +11,12 @@ import seeds from "lib/seeds";
 import pkg from "../package.json";
 import sleep from "lib/sleep";
 
-const HOST = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+// const HOST = process.env.VERCEL_URL
+//   ? `https://${process.env.VERCEL_URL}`
+//   : "http://localhost:3000";
+
+const HOST = "https://scribbleimage.netlify.app/";
+  
 
 export default function Home() {
   const [error, setError] = useState(null);
