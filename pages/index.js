@@ -15,7 +15,8 @@ import sleep from "lib/sleep";
 //   ? `https://${process.env.VERCEL_URL}`
 //   : "http://localhost:3000";
 
-const HOST = "https://image-ai-create.vercel.app/";
+// const HOST = "https://image-ai-create.vercel.app/";
+const HOST = "http://localhost:3000";
   
 
 export default function Home() {

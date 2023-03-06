@@ -1,9 +1,15 @@
-import cors from 'cors';
+// import cors from 'cors';
 import packageData from "../../../package.json";
 
 const REPLICATE_API_HOST = "https://api.replicate.com";
+// const corsMiddleware = cors({
+//   origin: '*', // Replace '*' with a list of allowed origins
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+// });
 
 export default async function handler(req, res) {
+  // await corsMiddleware(req, res);
   if (!process.env.REPLICATE_API_TOKEN) {
     throw new Error("The REPLICATE_API_TOKEN environment variable is not set. See README.md for instructions on how to set it.");
   }
@@ -21,7 +27,7 @@ export default async function handler(req, res) {
   }
 
   // Add the cors middleware
-  await cors()(req, res);
+  // await cors()(req, res);
 
   const response = await fetch(`${REPLICATE_API_HOST}/v1/predictions`, {
     method: "POST",
