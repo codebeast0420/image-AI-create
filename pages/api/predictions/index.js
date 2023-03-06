@@ -1,5 +1,6 @@
 // import cors from 'cors';
 import packageData from "../../../package.json";
+import Cors from 'micro-cors'
 
 const REPLICATE_API_HOST = "https://api.replicate.com";
 // const corsMiddleware = cors({
@@ -7,8 +8,13 @@ const REPLICATE_API_HOST = "https://api.replicate.com";
 //   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 //   allowedHeaders: ['Content-Type', 'Authorization'],
 // });
+const cors = Cors({
+  allowMethods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['X-Requested-With', 'Access-Control-Allow-Origin', 'X-HTTP-Method-Override', 'Content-Type', 'Authorization', 'Accept'],
+});
 
-export default async function handler(req, res) {
+export default async function corsHandler(req, res) {
+  await cors(req, res);
   // await corsMiddleware(req, res);
   if (!process.env.REPLICATE_API_TOKEN) {
     throw new Error("The REPLICATE_API_TOKEN environment variable is not set. See README.md for instructions on how to set it.");
