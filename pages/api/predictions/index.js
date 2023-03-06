@@ -1,6 +1,7 @@
-const REPLICATE_API_HOST = "https://api.replicate.com";
-
+import cors from 'cors';
 import packageData from "../../../package.json";
+
+const REPLICATE_API_HOST = "https://api.replicate.com";
 
 export default async function handler(req, res) {
   if (!process.env.REPLICATE_API_TOKEN) {
@@ -18,6 +19,9 @@ export default async function handler(req, res) {
     "Content-Type": "application/json",
     "User-Agent": `${packageData.name}/${packageData.version}`
   }
+
+  // Add the cors middleware
+  await cors()(req, res);
 
   const response = await fetch(`${REPLICATE_API_HOST}/v1/predictions`, {
     method: "POST",
