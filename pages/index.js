@@ -43,6 +43,7 @@ export default function Home() {
 
     const body = {
       prompt,
+      // image: 'https://upcdn.io/FW25b4F/raw/uploads/scribble-diffusion/1.0.0/2023-03-06/scribble_input_idcMdujY.png',
       image: fileUrl,
     };
 

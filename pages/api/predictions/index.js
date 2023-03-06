@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   });
 
   const headers = {
-    Authorization: `Token ${process.env.REPLICATE_API_TOKEN}`,
+    Authorization: `Token f98e4afbb9d359074cd181f136edac871ea9dc24`,
     "Content-Type": "application/json",
     "User-Agent": `${packageData.name}/${packageData.version}`
   }
